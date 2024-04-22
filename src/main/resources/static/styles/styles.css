@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1d1d1b;
+}
+
+p,
+h1,
+a,
+button,
+input,
+li {
+    color: #fff;
+}
+
+h1 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+}
+
+button {
+    cursor: pointer;
+}
+
+p,
+a,
+button,
+li,
+input {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+}
+
+
+header,
+footer {
+    background: #1d1d1b;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.logo-container {
+    display: flex;
+    width: 80%;
+    align-items: center;
+}
+
+.logo-container img {
+    width: 6rem;
+}
+
+.logo-container h1 {
+    letter-spacing: 0.5rem;
+}
+
+
+
+.links-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.links-container img {
+    width: 3rem;
+}
+
+.road-container {
+    background-image: url(../images/empty_road.webp);
+    background-repeat: repeat-y;
+    background-position: center;
+}
+
+.cars-container svg{
+    width: 4rem;
+}
