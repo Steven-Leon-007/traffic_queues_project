@@ -12,12 +12,22 @@ import com.studios.c124.traffic_queues.traffic_queues.service.CarsService;
 @RequestMapping()
 public class CarsController {
 
-    // @Autowired
-    // private CarsService carsService;
+    @Autowired
+    private CarsService carsService;
 
     @GetMapping("/")
     public ModelAndView index(){
         ModelAndView model = new ModelAndView("index");
         return model;
     }
+
+    
+    @GetMapping("/test")
+    public ModelAndView test(){
+        carsService.initProccess();
+        ModelAndView model = new ModelAndView("index");
+        return model;
+    }
+
+
 }
