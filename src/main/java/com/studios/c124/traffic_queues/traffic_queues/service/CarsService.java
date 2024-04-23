@@ -15,32 +15,29 @@ import lombok.Setter;
 @Service
 public class CarsService {
 
-    private int numCars;
     private LinkedList<Car> queue;
     private int defaultMove = 5;
 
     public CarsService() {
-        this.numCars = 5;
         this.queue = new LinkedList<Car>();
-        initProccess();
     }
 
-    public void initProccess() {
-        fillQueue();
-        initCarsPosition();
-    }
 
-    private void fillQueue() {
+    public LinkedList<Car> fillQueue(int numCars) {
         for (int i = 0; i < numCars; i++) {
             Random random = new Random();
             int[] colors = { random.nextInt(256), random.nextInt(256), random.nextInt(256) };
-            addCar(new Car(colors));
+            Car car = new Car(colors);
+            car.setColorHEX(String.format("#%02x%02x%02x", colors[0], colors[1], colors[2]));
+            addCar(car);
         }
+        initCarsPosition();
+        return queue;
     }
 
     private LinkedList<Car> initCarsPosition() {
         for (int i = 0; i < queue.size(); i++) {
-            queue.get(i).setPosition(queue.get(i).getPosition() + (defaultMove * (queue.size() - i)));
+            queue.get(i).setPosition(defaultMove * (queue.size() - i));
         }
         return queue;
     }

@@ -9,6 +9,7 @@ public class Car {
 
     private int[] color;
     private int position;
+    private String colorHEX;
 
     public Car(int[] color) {
         this.position = 0;
