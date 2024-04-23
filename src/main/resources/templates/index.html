@@ -36,6 +36,8 @@
     </header>
     <main>
         <div class="road-container">
+            <img th:src="@{/images/traffic-light.svg}" alt="Maze Solver App Logo" class="traffic-light">
+
             <div class="cars-container">
                 <div th:each="car: ${cars}" class="car">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg171"
@@ -164,17 +166,17 @@
                 </div>
             </div>
         </div>
-        <form th:action="@{/add}" method="POST">
+        <form th:action="@{/add}" method="POST" class="add-car-form">
             <input type="hidden" name="amount" value="1">
             <button type="submit" class="add-button">Agregar un carro</button>
         </form>
-        <form th:action="@{/del}" method="POST">            
+        <form th:action="@{/del}" method="POST" class="remove-car-form">            
             <button type="submit" class="add-button">Borrar un carro</button>
         </form>
     </main>
     <footer>
         <div class="footer-content">
-            <p>© 2024 - Maze Solver. All rights reserved.</p>
+            <p>© 2024 - Traffic Queues. All rights reserved.</p>
             <p>Developed with ❤️ by C124 Studios</p>
         </div>
     </footer>
