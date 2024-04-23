@@ -65,8 +65,6 @@ nav {
     letter-spacing: 0.5rem;
 }
 
-
-
 .links-container {
     display: flex;
     gap: 1rem;
@@ -76,12 +74,83 @@ nav {
     width: 3rem;
 }
 
-.road-container {
-    background-image: url(../images/empty_road.webp);
-    background-repeat: repeat-y;
-    background-position: center;
+main {
+    background-color: #2f2f2f;
+    padding: 2rem 0 0;
 }
 
-.cars-container svg{
+.road-container {
+    background-image: url(../images/empty_road.webp);
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: contain;
+}
+
+.cars-container {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    padding: 1rem 5rem 1rem 2rem;
+    overflow-x: hidden;
+    gap: 1rem;
+    position: relative;
+}
+
+.car {
+    flex: 0 0 auto;
+    margin: 1rem 2.5rem;
+    position: relative;
+    left: -100%;
+    display: inline-block;
+}
+
+.car.animate{
+    animation: moveInCars 3s linear forwards;
+}
+
+.cars-container svg {
     width: 4rem;
+    transform: rotateZ(90deg);
+}
+
+@keyframes moveInCars {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+form {
+    padding: 2rem 0;
+}
+
+.add-button {
+    background-color: #b38312;
+    border: none;
+    border-radius: 0.4rem;
+    width: 50%;
+    margin: 0 auto;
+    padding: 1rem;
+    font-weight: bold;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.add-button:hover {
+    background-color: #987217;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.footer-content p {
+    font-size: 0.8rem;
 }
