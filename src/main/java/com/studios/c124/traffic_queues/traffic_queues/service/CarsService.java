@@ -2,24 +2,20 @@ package com.studios.c124.traffic_queues.traffic_queues.service;
 
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.Stack;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.studios.c124.traffic_queues.traffic_queues.model.Car;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 @Service
 public class CarsService {
 
     private LinkedList<Car> queue;
-    private int defaultMove = 5;
+    private int defaultMove;
 
-    public CarsService() {
+    public CarsService(@Value("${movement_queue}") int defaultMove) {
+        this.defaultMove = defaultMove;
         this.queue = new LinkedList<Car>();
     }
 
@@ -49,9 +45,8 @@ public class CarsService {
 
     public LinkedList<Car> deleteFirstCar() {                
         if (!queue.isEmpty()) {
-            System.out.println("entré aca");
             this.queue.removeFirst();    
-            return this.queue;        
+            return this.queue;
         }
         return this.queue;
     }
