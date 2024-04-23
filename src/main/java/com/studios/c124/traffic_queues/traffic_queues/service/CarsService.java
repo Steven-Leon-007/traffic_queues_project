@@ -2,6 +2,7 @@ package com.studios.c124.traffic_queues.traffic_queues.service;
 
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.Stack;
 
 import org.springframework.stereotype.Service;
 
@@ -37,12 +38,21 @@ public class CarsService {
 
     private LinkedList<Car> initCarsPosition() {
         for (int i = 0; i < queue.size(); i++) {
-            queue.get(i).setPosition(defaultMove * (queue.size() - i));
+            queue.get(i).setPosition(defaultMove * (queue.size() - i));            
         }
         return queue;
     }
-
+    
     public void addCar(Car car) {
         this.queue.add(car);
+    }
+
+    public LinkedList<Car> deleteFirstCar() {                
+        if (!queue.isEmpty()) {
+            System.out.println("entré aca");
+            this.queue.removeFirst();    
+            return this.queue;        
+        }
+        return this.queue;
     }
 }

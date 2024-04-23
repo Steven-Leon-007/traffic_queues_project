@@ -29,10 +29,14 @@ public class CarsController {
     }
 
     @PostMapping("/add")
-    public String test(@RequestParam int amount){
-        carsQueue = carsService.fillQueue(amount);
+    public String addCar(@RequestParam int amount){
+        carsQueue = carsService.fillQueue(amount);        
         return "redirect:/";
     }
-
+    @PostMapping("/del")
+    public String deleteCar(){
+        carsQueue = carsService.deleteFirstCar();
+        return "redirect:/";
+    }
 
 }
